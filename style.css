@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@500;700&display=swap');
+
+:root {
+  --almost-white: hsl(0, 0%, 98%);
+  --medium-gray: hsl(0, 0%, 41%);
+  --almost-black: hsl(0, 0%, 8%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Epilogue', sans-serif;
+  background: var(--almost-white);
+  color: var(--almost-black);
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  font: inherit;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.header {
+  width: 100%;
+  padding: 25px 5%;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.logo {
+  width: 84px;
+  height: auto;
+  display: block;
+}
+
+.nav-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  list-style: none;
+}
+
+.nav-item {
+  position: relative;
+}
+
+.nav-link {
+  color: var(--medium-gray);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.login:hover {
+  color: var(--almost-black);
+}
+
+.nav-link img {
+  width: 10px;
+}
+
+.dropdown-list {
+  display: none;
+  position: absolute;
+  top: 35px;
+  left: -15px;
+  min-width: 155px;
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.12);
+  list-style: none;
+  z-index: 10;
+}
+
+.dropdown-list.show {
+  display: block;
+}
+
+.dropdown-list .dropdown-link + .dropdown-link {
+  margin-top: 13px;
+}
+
+.dropdown-link a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--medium-gray);
+  font-size: 13px;
+}
+
+.dropdown-link a:hover {
+  color: var(--almost-black);
+}
+
+.dropdown-link img {
+  width: 16px;
+}
+
+.nav-dropdown.link-open img {
+  transform: rotate(180deg);
+}
+
+.auth-links {
+  display: flex;
+  align-items: center;
+  color: var(--medium-gray);
+  font-size: 14px;
+}
+
+.registration {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  border: none;
+  padding: 0;
+}
+
+.registration button {
+  font: inherit;
+  color: var(--medium-gray);
+  background: transparent;
+  cursor: pointer;
+}
+
+.registration button:hover {
+  color: var(--almost-black);
+}
+
+.registration .register {
+  border: 1.5px solid var(--medium-gray);
+  border-radius: 13px;
+  padding: 12px 20px;
+}
+
+.registration .register:hover {
+  border-color: var(--almost-black);
+}
+
+.mobile-menu-header,
+.open-menu {
+  display: none;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 35%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: 20;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.hero {
+  max-width: 1120px;
+  margin: 45px auto 0;
+  padding: 0 30px;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.text-content {
+  flex: 1;
+  max-width: 520px;
+  order: 1;
+}
+
+.text-content h1 {
+  font-size: clamp(48px, 6vw, 78px);
+  line-height: 1.05;
+  letter-spacing: -3px;
+  max-width: 480px;
+  margin-bottom: 35px;
+}
+
+.text-content p {
+  max-width: 440px;
+  color: var(--medium-gray);
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 35px;
+}
+
+.learn-more {
+  display: inline-block;
+  background: var(--almost-black);
+  color: white;
+  padding: 16px 27px;
+  border: 1px solid var(--almost-black);
+  border-radius: 14px;
+  font-weight: 700;
+  transition: 0.2s;
+}
+
+.learn-more:hover {
+  background: transparent;
+  color: var(--almost-black);
+}
+
+.hero-image {
+  flex: 1;
+  order: 2;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 460px;
+  display: block;
+}
+
+.clients {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-top: 65px;
+}
+
+.clients img {
+  max-width: 100px;
+  max-height: 28px;
+}
+
+.footer {
+  text-align: center;
+  color: var(--medium-gray);
+  font-size: 12px;
+  padding: 35px 15px;
+}
+
+.footer a {
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+
+  .header {
+    padding: 22px 20px;
+  }
+
+  .navbar {
+    justify-content: space-between;
+  }
+
+  .open-menu {
+    display: block;
+  }
+
+  .open-menu img {
+    width: 30px;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 65%;
+    height: 100vh;
+    background: white;
+    z-index: 30;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 25px;
+    transition: right 0.3s ease;
+  }
+
+  .nav-menu.active {
+    right: 0;
+  }
+
+  .mobile-menu-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 45px;
+  }
+
+  .mobile-menu-header .logo-link {
+    display: none;
+  }
+
+  .close-menu img {
+    width: 25px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  .nav-link {
+    font-size: 16px;
+  }
+
+  .dropdown-list {
+    position: static;
+    box-shadow: none;
+    padding: 20px 0 0 20px;
+    background: transparent;
+  }
+
+  .auth-links {
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  .registration {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
+
+  .registration button {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero {
+    margin-top: 15px;
+    padding: 0;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  .hero-image {
+    order: 0;
+    width: 100%;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+  }
+
+  .text-content {
+    order: 1;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .text-content h1 {
+    font-size: 36px;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+  }
+
+  .text-content p {
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  .clients {
+    justify-content: space-between;
+    gap: 15px;
+    padding: 0 18px;
+    margin-top: 45px;
+  }
+
+  .clients img {
+    width: 20%;
+    max-width: 75px;
+  }
+
+  .footer {
+    padding-top: 40px;
+  }
+}
